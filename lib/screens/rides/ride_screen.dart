@@ -17,7 +17,6 @@ import 'controller/ride_controller.dart';
 
 class RideScreen extends GetView<RideController> {
   RideScreen({super.key});
-  GoogleMapController? globalMapController;
 
   rideDetail(){
     return CustomDialog(
@@ -72,10 +71,7 @@ class RideScreen extends GetView<RideController> {
                       target: LatLng(41.878113, -87.629799),
                       zoom: 12,
                     ),
-                    onMapCreated: (GoogleMapController controller) {
-                      globalMapController = controller;
-                      globalMapController!.setMapStyle(CommonCode.mapStyles);
-                    },
+                    onMapCreated: controller.setGlobalMap,
                   ),
                 ),
               ),

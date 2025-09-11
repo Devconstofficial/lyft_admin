@@ -2,8 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../../utils/common_code.dart';
+
 class RideController extends GetxController {
   var searchController = TextEditingController();
+  GoogleMapController? globalMapController;
+
+  void setGlobalMap(GoogleMapController controller) {
+    globalMapController = controller;
+    globalMapController!.setMapStyle(CommonCode.mapStyles);
+  }
   final List<Map<String, dynamic>> allRiders = [
     {
       "id": "#3290137450",
